@@ -1,21 +1,23 @@
 import Link from "next/link"
 export default async function Home() {
-  const url = await fetch("https://jsonplaceholder.typicode.com/todos/1")
-  const response = await url.json()
-  console.log(response)
+  const url = await fetch("http://localhost:3000/api/student")
+  const data = await url.json()
+  console.log(data)
   return (
     <main>
-      {JSON.stringify(response)}
-      {
-        response.map((res: any,i:number) => (
-          <div>
-
-            <Link href={`${res.id}}`}>
-              Data
-            </Link>
-          </div>
-        ))
-      }
+      <div>
+        {
+          data.map((student:any,i:number) => {
+            return(
+              <div key={i}>
+                <h1>{student.name}</h1>
+                <h2>{student.age}</h2>
+                <h3>{student.rollNo}</h3>
+              </div>
+            )
+          })
+        }
+      </div>
     </main>
   );
 }
