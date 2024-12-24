@@ -3,6 +3,7 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { link } from "fs";
 import { useState } from "react";
+import React from "react";
 
 const navLinks = [
   { name: "Register", href: "/register" },
