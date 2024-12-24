@@ -17,24 +17,17 @@ const students = [
     age: 22,
   },
 ];
-export async function GET(request: Request) {
+export async function GET() {
   return NextResponse.json(students);
 }
 
-export async function POST(req: NextRequest, res: NextResponse) {
-  // Parse incoming data from the request body
+export async function POST(req: NextRequest) {
   const body = await req.json();
-
-  // Create a new student object
   const newStudent: any = {
-    id: students.length + 1, // Generate an ID (simple auto-increment)
+    id: students.length + 1,
     name: body.name,
     age: body.age,
-  };
-
-  // Add the student to the in-memory array
+  }
   students.push(newStudent);
-
-  // Return the newly created student
-  return NextResponse.json(newStudent, { status: 201 });
+  return NextResponse.json(newStudent);
 }
