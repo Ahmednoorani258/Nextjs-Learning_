@@ -10,6 +10,7 @@ export default function Hooks() {
         <li><Link href={"/usestate"}>1) UseState</Link></li>
         <li><Link href={"/useeffect"}>2) UseEffect</Link></li>
         <li><Link href={"/useRef"}>3) UseRef</Link></li>
+        <li><Link href={"/usememo"}>3) UseMemo</Link></li>
       </ul>
    </div>
   );
